@@ -318,22 +318,6 @@ public class FrameHungryAnts extends javax.swing.JFrame {
         txtInfoPassi = new javax.swing.JTextArea();
         txtParametri = new javax.swing.JTextArea();
         panParametri = new javax.swing.JTabbedPane();
-        panVarie = new javax.swing.JPanel();
-        butNuovoScenario = new javax.swing.JButton();
-        butCarica = new javax.swing.JButton();
-        butSalva = new javax.swing.JButton();
-        butFondoScala = new javax.swing.JButton();
-        panTerreno = new javax.swing.JPanel();
-        chkDisegnabile = new javax.swing.JCheckBox();
-        tipiCaselle = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        txtLivFeromone = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        txtEvapora = new javax.swing.JTextField();
-        butAggiornaTerreno = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        butAzzeraFeromone = new javax.swing.JButton();
         panFormiche = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtFeromoneFormiche = new javax.swing.JTextField();
@@ -345,6 +329,22 @@ public class FrameHungryAnts extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         butInitColonia = new javax.swing.JButton();
         butNuovaColonia = new javax.swing.JButton();
+        panTerreno = new javax.swing.JPanel();
+        chkDisegnabile = new javax.swing.JCheckBox();
+        tipiCaselle = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        txtLivFeromone = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        txtEvapora = new javax.swing.JTextField();
+        butAggiornaTerreno = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        butAzzeraFeromone = new javax.swing.JButton();
+        panVarie = new javax.swing.JPanel();
+        butNuovoScenario = new javax.swing.JButton();
+        butCarica = new javax.swing.JButton();
+        butSalva = new javax.swing.JButton();
+        butFondoScala = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Angry Ants");
@@ -478,62 +478,105 @@ public class FrameHungryAnts extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 6, 5);
         panStrumenti.add(txtParametri, gridBagConstraints);
 
-        panVarie.setLayout(new java.awt.GridBagLayout());
+        panFormiche.setLayout(new java.awt.GridBagLayout());
 
-        butNuovoScenario.setText("Nuovo scenario");
-        butNuovoScenario.setToolTipText("Nuovo terreno e nuova colonia");
-        butNuovoScenario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butNuovoScenarioActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Feromone");
+        jLabel2.setToolTipText("Feromone rilasciato");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(jLabel2, gridBagConstraints);
+
+        txtFeromoneFormiche.setText("1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(txtFeromoneFormiche, gridBagConstraints);
+
+        jLabel3.setText("Alpha");
+        jLabel3.setToolTipText("Attrazione base (feromone escluso)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(jLabel3, gridBagConstraints);
+
+        txtAlpha.setText("2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(txtAlpha, gridBagConstraints);
+
+        jLabel4.setText("Beta");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(jLabel4, gridBagConstraints);
+
+        txtBeta.setText("5");
+        txtBeta.setToolTipText("Coefficiente di non-linearità");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panVarie.add(butNuovoScenario, gridBagConstraints);
+        panFormiche.add(txtBeta, gridBagConstraints);
 
-        butCarica.setText("Carica terreno");
-        butCarica.setToolTipText("Carica terreno");
-        butCarica.addActionListener(new java.awt.event.ActionListener() {
+        butAggiornaFormiche.setText("Aggiorna");
+        butAggiornaFormiche.setToolTipText("Aggiorna parametri di questa scheda");
+        butAggiornaFormiche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butCaricaActionPerformed(evt);
+                butAggiornaFormicheActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(butAggiornaFormiche, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panFormiche.add(jSeparator3, gridBagConstraints);
+
+        butInitColonia.setText("Iniz. colonia");
+        butInitColonia.setToolTipText("Reinizializza la colonia");
+        butInitColonia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butInitColoniaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panVarie.add(butCarica, gridBagConstraints);
+        panFormiche.add(butInitColonia, gridBagConstraints);
 
-        butSalva.setText("Salva terreno");
-        butSalva.setToolTipText("Salva terreno");
-        butSalva.addActionListener(new java.awt.event.ActionListener() {
+        butNuovaColonia.setText("Nuova colonia");
+        butNuovaColonia.setToolTipText("Nuovo colonia");
+        butNuovaColonia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butSalvaActionPerformed(evt);
+                butNuovaColoniaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panVarie.add(butSalva, gridBagConstraints);
-
-        butFondoScala.setText("Fondo scala");
-        butFondoScala.setToolTipText("Fondo scala feromone (per la colorazione)");
-        butFondoScala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butFondoScalaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panVarie.add(butFondoScala, gridBagConstraints);
+        panFormiche.add(butNuovaColonia, gridBagConstraints);
 
-        panParametri.addTab("Varie", panVarie);
+        panParametri.addTab("Formiche", panFormiche);
 
         panTerreno.setLayout(new java.awt.GridBagLayout());
 
@@ -634,105 +677,62 @@ public class FrameHungryAnts extends javax.swing.JFrame {
 
         panParametri.addTab("Terreno", panTerreno);
 
-        panFormiche.setLayout(new java.awt.GridBagLayout());
+        panVarie.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Feromone");
-        jLabel2.setToolTipText("Feromone rilasciato");
+        butNuovoScenario.setText("Nuovo scenario");
+        butNuovoScenario.setToolTipText("Nuovo terreno e nuova colonia");
+        butNuovoScenario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butNuovoScenarioActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(jLabel2, gridBagConstraints);
-
-        txtFeromoneFormiche.setText("1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(txtFeromoneFormiche, gridBagConstraints);
-
-        jLabel3.setText("Alpha");
-        jLabel3.setToolTipText("Attrazione base (feromone escluso)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(jLabel3, gridBagConstraints);
-
-        txtAlpha.setText("2");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(txtAlpha, gridBagConstraints);
-
-        jLabel4.setText("Beta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(jLabel4, gridBagConstraints);
-
-        txtBeta.setText("5");
-        txtBeta.setToolTipText("Coefficiente di non-linearità");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(txtBeta, gridBagConstraints);
+        panVarie.add(butNuovoScenario, gridBagConstraints);
 
-        butAggiornaFormiche.setText("Aggiorna");
-        butAggiornaFormiche.setToolTipText("Aggiorna parametri di questa scheda");
-        butAggiornaFormiche.addActionListener(new java.awt.event.ActionListener() {
+        butCarica.setText("Carica terreno");
+        butCarica.setToolTipText("Carica terreno");
+        butCarica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butAggiornaFormicheActionPerformed(evt);
+                butCaricaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(butAggiornaFormiche, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(jSeparator3, gridBagConstraints);
-
-        butInitColonia.setText("Iniz. colonia");
-        butInitColonia.setToolTipText("Reinizializza la colonia");
-        butInitColonia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butInitColoniaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(butInitColonia, gridBagConstraints);
+        panVarie.add(butCarica, gridBagConstraints);
 
-        butNuovaColonia.setText("Nuova colonia");
-        butNuovaColonia.setToolTipText("Nuovo colonia");
-        butNuovaColonia.addActionListener(new java.awt.event.ActionListener() {
+        butSalva.setText("Salva terreno");
+        butSalva.setToolTipText("Salva terreno");
+        butSalva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butNuovaColoniaActionPerformed(evt);
+                butSalvaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
+        panVarie.add(butSalva, gridBagConstraints);
+
+        butFondoScala.setText("Fondo scala");
+        butFondoScala.setToolTipText("Fondo scala feromone (per la colorazione)");
+        butFondoScala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butFondoScalaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        panFormiche.add(butNuovaColonia, gridBagConstraints);
+        panVarie.add(butFondoScala, gridBagConstraints);
 
-        panParametri.addTab("Formiche", panFormiche);
+        panParametri.addTab("Varie", panVarie);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
