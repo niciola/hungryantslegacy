@@ -1,0 +1,14 @@
+Elenco di buone combinanzioni di parametri.
+Ricordarsi che l'angolo in alto a sinistra del terreno ha coordinate (0,0).
+
+Terreno: 100x100 libero
+Nido: (19,19)
+Cibo: (69,69)
+Num. formiche: 1000
+Vita formiche: 300
+Feromone: 2.0
+Alpha: 2.0
+Beta: 2.0
+Evaporazione: 0.01
+
+Percorso ottimo: 70.71
